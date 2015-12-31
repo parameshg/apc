@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">VPN Server</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_start">Start Capturing</string>
+    <string name="action_stop">Stop Capturing</string>
+
+    <string name="pref_domain_key">domain</string>
+    <string name="pref_domain_label">Domain</string>
+    <string name="pref_domain_default">paramg.com</string>
+
+    <string name="pref_https_key">https</string>
+    <string name="pref_https_label">Security</string>
+    <string name="pref_https_checked">Allow HTTPS Traffic</string>
+    <string name="pref_https_unchecked">Ignore HTTPS Traffic</string>
+
+    <string name="pref_browser_key">browser</string>
+    <string name="pref_browser_label">Browser</string>
+    <string name="pref_browser_default">chrome</string>
+    <string-array name="pref_browser_options">
+        <item>Chrome</item>
+        <item>FireFox</item>
+        <item>Android Browser</item>
+    </string-array>
+    <string-array name="pref_browser_values">
+        <item>chrome</item>
+        <item>firefox</item>
+        <item>builtin</item>
+    </string-array>
+
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_detail">Details</string>
+</resources>

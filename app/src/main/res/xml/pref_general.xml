@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:defaultValue="@string/pref_domain_default"
+        android:inputType="text"
+        android:key="@string/pref_domain_key"
+        android:singleLine="true"
+        android:title="@string/pref_domain_label"/>
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="@string/pref_https_key"
+        android:summaryOff="@string/pref_https_unchecked"
+        android:summaryOn="@string/pref_https_checked"
+        android:title="@string/pref_https_label"/>
+    <ListPreference
+        android:defaultValue="@string/pref_browser_default"
+        android:entries="@array/pref_browser_options"
+        android:entryValues="@array/pref_browser_values"
+        android:key="@string/pref_browser_key"
+        android:title="@string/pref_browser_label"/>
+</PreferenceScreen>
