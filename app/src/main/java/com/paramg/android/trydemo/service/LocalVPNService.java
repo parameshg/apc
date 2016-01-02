@@ -25,7 +25,7 @@ public class LocalVPNService extends VpnService
 {
     public static final String BROADCAST_VPN_STATE = "com.paramg.android.trydemo.service.VPN_STATE";
     private static final String TAG = LocalVPNService.class.getSimpleName();
-    private static final String VPN_ADDRESS = "192.168.1.235"; // Only IPv4 support for now
+    private static final String VPN_ADDRESS = "192.168.1.123"; // Only IPv4 support for now
     private static final String VPN_ROUTE = "0.0.0.0"; // Intercept everything
     private static boolean isRunning = false;
 
@@ -106,7 +106,9 @@ public class LocalVPNService extends VpnService
             Builder builder = new Builder();
             builder.addAddress(VPN_ADDRESS, 32);
             builder.addRoute(VPN_ROUTE, 0);
-            vpnInterface = builder.setSession(getString(R.string.app_name)).setConfigureIntent(pendingIntent).establish();
+            //builder.addDnsServer("192.168.1.1");
+            //vpnInterface = builder.setSession(getString(R.string.app_name)).setConfigureIntent(pendingIntent).establish();
+            vpnInterface = builder.setSession(getString(R.string.app_name)).establish();
 
             if (vpnInterface == null)
             {
@@ -199,6 +201,18 @@ public class LocalVPNService extends VpnService
                         else if (packet.isTCP())
                         {
                             deviceToNetworkTCPQueue.offer(packet);
+
+                            //Log.d("TCP/IP.Header", packet.ip4Header.toString());
+
+                            StringBuilder stringBuilder = new StringBuilder();
+
+                            for(byte i : packet.backingBuffer.array())
+                            {
+                                if (((short)i) >= 40 &&((short)i) <= 126)
+                                    stringBuilder.append((char) i);
+                            }
+
+                            Log.d("TCP/IP.Data", stringBuilder.toString());
                         }
                         else
                         {
